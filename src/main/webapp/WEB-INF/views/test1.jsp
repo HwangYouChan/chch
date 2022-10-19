@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	커밋해봐야지
-	ㅋㅋ
+123456
 </body>
 </html>
