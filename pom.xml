@@ -3,20 +3,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.chch</groupId>
-	<artifactId>chch</artifactId>
-	<name>chch</name> 
+	<groupId>com.ch</groupId>
+	<artifactId>chackcheckPrac</artifactId>
+	<name>chackcheckPrac</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
-	<properties> 
-		<java-version>1.8</java-version>
+	<properties>
+		<java-version>11</java-version>
 		<org.springframework-version>4.2.4.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
-	<dependencies> 
-		<!-- JDK11 추가 --> 
-		<dependency> 
+	<dependencies>
+		<!-- JDK11 추가 -->
+		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.1</version>
@@ -31,7 +31,6 @@
 			<artifactId>jaxb-impl</artifactId>
 			<version>2.3.1</version>
 		</dependency>
-		<!-- javax.mail이 포함된 디펜던시 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
@@ -42,11 +41,30 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
+		<!-- 파일 업로드 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		
+		<!-- restcontroller -->
+		<dependency>
+			<groupId>com.fasterxml</groupId>
+			<artifactId>classmate</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
 		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.12</version>
+			<version>1.18.24</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -80,17 +98,6 @@
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
 			<version>2.7.4</version>
-		</dependency>
-		<!-- json -->
-		<dependency>
-			<groupId>com.fasterxml</groupId>
-			<artifactId>classmate</artifactId>
-			<version>1.4.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.9.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
 		<dependency>
@@ -157,8 +164,6 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		<!-- AspectJ -->
-		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-aspects</artifactId> 
-			<version>3.1.0.RELEASE</version> </dependency> -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
@@ -277,6 +282,7 @@
 			<artifactId>commons-io</artifactId>
 			<version>1.3.2</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
@@ -294,6 +300,7 @@
 			<version>1.4.7</version>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -304,8 +311,12 @@
 					<target>${java-version}</target>
 				</configuration>
 			</plugin>
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-war-plugin</artifactId> 
-				<configuration> <warName>ch08</warName> </configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<!-- 프로젝트명을 변경할 때 사용 -->
+				<!--<configuration> <warName>abc</warName> </configuration> -->
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>

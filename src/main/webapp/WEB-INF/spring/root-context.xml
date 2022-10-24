@@ -9,8 +9,8 @@
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.naver.com" />
 		<property name="port" value="465" />
-		<property name="username" value="kbj010" />
-		<property name="password" value="xxxxxxxx" />
+		<property name="username" value="helen1282" />
+		<property name="password" value="Roaossoqeno1282!" />
 		<property value="smtps" name="protocol" />
 		<property value="utf-8" name="defaultEncoding" />
 		<property name="javaMailProperties">
@@ -23,12 +23,14 @@
 			</props>
 		</property>
 	</bean>
+	
 	<!-- 암호화 -->
 	<bean id="passwordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
 	</bean>
-	<context:property-placeholder
-		location="classpath:db.properties" />
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:property-placeholder location="classpath:db.properties"/>
 	<!-- myBatis시작 -->
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -49,5 +51,6 @@
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
 		destroy-method="close">
 		<constructor-arg ref="hikariConfig"></constructor-arg>
-	</bean>
+	</bean>	
+
 </beans>
